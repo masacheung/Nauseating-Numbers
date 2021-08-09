@@ -235,15 +235,15 @@ def adjacent_sums(arr)
 end
 
 def pascals_triangle(n)
-    triangle = [[1]]
-    while triangle.length < n
-        level_above = triangle.last
+    tr = [[1]]
+    while tr.length < n
+        top = tr[-1]
         next_level = [1]
-        next_level += adjacent_sums(level_above)
+        next_level += adjacent_sums(top)
         next_level << 1
-        triangle << next_level
+        tr << next_level
     end
-    triangle
+    tr
 end
 
 p pascals_triangle(5)
